@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/styles.css')
+    // link(rel='icon', href="{{ url_for('static', path='img/icon.ico') }}")
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    title 海獺的GALGAME記錄站
+  body.body
+    nav.navbar.navbar-light(style='background-color: #f7c17f;')
+      .container-fluid
+        a.navMain.boldText(href='/galgame') 海獺的GALGAME記錄站
+        button.navbar-toggler(type='button', data-bs-toggle='offcanvas', data-bs-target='#offcanvasNavbar', aria-controls='offcanvasNavbar')
+          span.navbar-toggler-icon
+        #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1', aria-labelledby='offcanvasNavbarLabel', style='background-color: #f7c17f;')
+          .offcanvas-header
+            h5#offcanvasNavbarLabel.offcanvas-title.navMain.boldText 海獺的GALGAME記錄站
+            button.btn-close.text-reset(type='button', data-bs-dismiss='offcanvas', aria-label='Close')
+          .offcanvas-body
+            ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
+              li.nav-item
+                a.nav-link.active.navTitle(aria-current='page', href='/galgame') 首頁
+              li.nav-item
+                a.nav-link.active.navTitle(href='/galgame/resource') 資源
+              li.nav-item
+                a.nav-link.active.navTitle(href='/galgame/aboutme') 關於我
+              li.nav-item
+                a.nav-link.active.navTitle(href='/galgame/newGalgameArticle') 新增GALGAME文章
+              li.nav-item
+                a.nav-link.active.navTitle(href='/galgame/databaseOperate') 資料庫操作
+    .row.container-fluid
+      #leftSection.col-2.text-center
+      .col-8.bodyMask
+        div
+          img.img(src='images/main.png')
+        hr
+        div
+          h1.display-4.bol.mainText 海獺的Galgame記錄站
+          block content
+          hr.my-4
+        div
+        block main
+        hr
+        br
+        br
+        br
+        br
+        br
+        .grey
+          a 技術整合:SeaotterMS
+      br
+      .col-2
+    script(src='javascripts/bootstrap.min.js')
+    // script(src='../../static/js/articleTool.js')
+          {% block script %}{% endblock %}

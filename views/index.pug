@@ -1,0 +1,24 @@
+extend base
+
+block content
+  h2.textJP MAIN-PAGE
+block main 
+  div
+    h3.dropdown-toggle(type='button', data-bs-toggle='collapse', data-bs-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample') Galgame攻略完畢心得
+    #collapseExample.collapse
+      each item in data
+        hr
+        div.row
+          div.col-6
+            a.galgameTitle(href=`/galgame/article/${item["title"]}`,type='button')= item['title']
+          - let tag_name = item['tag'].split(',') 
+            div.col-3
+              each tag in tag_name
+                a.galgameTitle(href=`/galgame/tag/${tag}`, type="button")
+                button.btn.btn-outline-warning(type='button')= tag
+            div.col-3
+              span.mainArticleTime= item["create_time"]
+    hr
+    div
+      h3.dropdown-toggle(type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2") 預計要完Galgame(點我展開)
+      div.collapse(id="collapse2") 櫻花萌放拉，問就是櫻花萌放。
