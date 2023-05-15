@@ -4,8 +4,8 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
     // link(rel='icon', href="{{ url_for('static', path='img/icon.ico') }}")
     script(src='https://code.jquery.com/jquery-3.6.0.min.js')
     title 海獺的GALGAME記錄站
@@ -35,7 +35,7 @@ html
       #leftSection.col-2.text-center
       .col-8.bodyMask
         div
-          img.img(src='images/main.png')
+          img.img(src='/images/main.png')
         hr
         div
           h1.display-4.bol.mainText 海獺的Galgame記錄站
@@ -53,6 +53,6 @@ html
           a 技術整合:SeaotterMS
       br
       .col-2
-    script(src='javascripts/bootstrap.min.js')
+    script(src='/javascripts/bootstrap.min.js')
     block script
-    // script(src='../../static/js/articleTool.js')
+    // script(src='/static/js/articleTool.js')

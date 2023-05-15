@@ -10,7 +10,7 @@ block main
         hr
         div.row
           div.col-6
-            a.galgameTitle(href=`/galgame/article/${item["title"]}`,type='button')= item['title']
+            a.galgameTitle(href=`/galgamearticle/${item["title"]}`,type='button')= item['title']
           - let tag_name = item['tag'].split(',') 
             div.col-3
               each tag in tag_name
