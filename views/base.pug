@@ -12,7 +12,7 @@ html
   body.body
     nav.navbar.navbar-light(style='background-color: #f7c17f;')
       .container-fluid
-        a.navMain.boldText(href='/galgame') 海獺的GALGAME記錄站
+        a.navMain.boldText(href='/') 海獺的GALGAME記錄站
         button.navbar-toggler(type='button', data-bs-toggle='offcanvas', data-bs-target='#offcanvasNavbar', aria-controls='offcanvasNavbar')
           span.navbar-toggler-icon
         #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1', aria-labelledby='offcanvasNavbarLabel', style='background-color: #f7c17f;')
@@ -22,15 +22,15 @@ html
           .offcanvas-body
             ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
               li.nav-item
-                a.nav-link.active.navTitle(aria-current='page', href='/galgame') 首頁
+                a.nav-link.active.navTitle(aria-current='page', href='/') 首頁
               li.nav-item
-                a.nav-link.active.navTitle(href='/galgame/resource') 資源
+                a.nav-link.active.navTitle(href='/resource') 資源
               li.nav-item
-                a.nav-link.active.navTitle(href='/galgame/aboutme') 關於我
+                a.nav-link.active.navTitle(href='/aboutme') 關於我
               li.nav-item
-                a.nav-link.active.navTitle(href='/galgame/newGalgameArticle') 新增GALGAME文章
+                a.nav-link.active.navTitle(href='/newArticle') 新增GALGAME文章
               li.nav-item
-                a.nav-link.active.navTitle(href='/galgame/databaseOperate') 資料庫操作
+                a.nav-link.active.navTitle(href='/databaseOperate') 資料庫操作
     .row.container-fluid
       #leftSection.col-2.text-center
       .col-8.bodyMask
@@ -54,5 +54,5 @@ html
       br
       .col-2
     script(src='javascripts/bootstrap.min.js')
+    block script
     // script(src='../../static/js/articleTool.js')
-          {% block script %}{% endblock %}
