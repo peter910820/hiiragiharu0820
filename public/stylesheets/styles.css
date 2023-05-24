@@ -1,3 +1,7 @@
+h1{
+    font-family:'en';
+}
+
 h3:hover{
     color: wheat;
 }
@@ -153,4 +157,8 @@ a{
 @font-face {
     font-family:'ch';
     src:url('../fonts/GenJyuuGothic-Medium.ttf');
+}
+@font-face {
+    font-family:'en';
+    src:url('../fonts/DisposableDroidBB_bld.ttf');
 }

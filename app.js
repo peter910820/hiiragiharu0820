@@ -83,6 +83,14 @@ app.get("/resource", async (req, res, next) => {
   }
 });
 
+app.get("/aboutme", (req, res, next) => {
+  try {
+    res.render("aboutme");
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get("/test", (req, res, next) => {
   try {
     console.log("Test");
