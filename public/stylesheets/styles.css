@@ -8,7 +8,30 @@ h3:hover{
 a{
     text-decoration:none;
 }
-
+.grey:hover{
+    color: #999595;
+}
+#translation{
+    background-color: #fff;
+    overflow: scroll;
+}
+#translation::-webkit-scrollbar {
+    display: none;
+  }
+.stand{
+    background-image: url("https://tonikawa.com/assets/images/common/special/oyomesan-gallery/img_oyomesan-gallery_03.jpg");
+    background-size: cover;
+}
+.textarea__markdown {
+    height: 300px;
+}
+.input__hidden{
+    display: none;
+}
+.div__articleImg img{
+    max-width: 100%;
+    max-height: 650px;
+}
 .mainArticleTime{
     color: gray;
 }

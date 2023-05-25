@@ -1,0 +1,13 @@
+.mainblock__main{
+    border-style: solid;
+    border-color: grey;
+    border-radius: 10px;
+    height: 200px;
+    margin: 10px;
+}
+.mainblock__img{
+    background-image: url("../images/sd_202_40.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

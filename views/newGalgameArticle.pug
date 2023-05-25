@@ -1,0 +1,60 @@
+extend base
+
+block content
+  h2.textJP ADD-NEW-GALGAME-ARTICLE
+
+block main
+  form.row.g-3.was-validated(action='/submit', method='post')
+    .col-md-12
+      label.form-label(for='workName') 作品名稱
+      input#workName.form-control(type='text', name='information', value='', required)
+      #workNameFeedback.invalid-feedback 請填寫作品名稱
+    .col-md-6
+      label.form-label(for='startplayTime') 開始遊玩時間
+      input#startplayTime.form-control.c(type='text', name='information', value='', required)
+      #startplayTimeFeedback.invalid-feedback 請填寫開始遊玩時間
+    .col-md-6
+      label.form-label(for='endplayTime') 結束遊玩時間
+      input#endplayTime.form-control(type='text', name='information', value='2099/13/32', required)
+      #endplayTimeFeedback.invalid-feedback 請填寫結束遊玩時間
+    .col-md-4
+      label.form-label(for='author') 作者
+      input#author.form-control(type='text', name='information', value='', required)
+      #authorFeedback.invalid-feedback 請填寫作者
+    .col-md-4
+      label.form-label(for='workCompany') 作品公司
+      input#workCompany.form-control.c(type='text', name='information', value='', required)
+      #workCompanyFeedback.invalid-feedback 請填寫作品公司
+    .col-md-4
+      label.form-label(for='tag') &#x6A19;&#x7C64;
+      select#tag.form-select.is-invalid(name='information', required)
+        option(selected='', disabled='', value='') 選擇標籤...
+        each item in data
+          option= item["tagname"]
+    .col-12
+      label.form-label(for='opURL') OP網址
+      input#opURL.form-control.op(type='text', name='information', placeholder='https://www.youtube.com/watch?v=......', required)
+      #opURLFeedback.invalid-feedback
+      | 請填寫OP網址
+    .col-12
+      label.form-label(for='experience') 內文/心得-(採用HTML格式，可用下面按鈕反白文字快速插入HTML標籤)
+      textarea#experience.form-control.is-invalid(name='information', rows='3', placeholder='文章不得為空白', required)
+    .col-9
+      button(onclick="insertEffect('h1')", type='button') h1
+      button(onclick="insertEffect('h2')", type='button') h2
+      button(onclick="insertEffect('h3')", type='button') h3
+      button(onclick="insertEffect('h4')", type='button') h4
+      button(onclick="insertEffect('strong')", type='button') strong
+      button(onclick="insertEffect('I')", type='button') italic
+      button(onclick="insertEffect('u')", type='button') u
+      button(onclick="insertEffect('del')", type='button') del
+      button(onclick="insertEffect2('br')", type='button') br
+      input#color.form-control-color.d-inline-block(type='color', name='color')
+    .col-12
+      label.form-label(for='password') 請輸入密碼
+      input#password.form-control.is-invalid(type='password', name='information', placeholder='Password', required)
+    .col-12
+      button.btn.btn-primary(type='submit') 送出
+
+block script
+  script(src='javascripts/inner.js')

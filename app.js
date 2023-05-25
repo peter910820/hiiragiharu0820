@@ -41,7 +41,7 @@ app.get("/galgamearticle/:article", async (req, res, next) => {
   }
 });
 
-app.get("/newArticle", async (req, res, next) => {
+app.get("/newGalgameArticle", async (req, res, next) => {
   try {
     let datas = await db.any("SELECT * FROM tag;")
       .then((data) => {
@@ -50,7 +50,15 @@ app.get("/newArticle", async (req, res, next) => {
         console.log("ERROR:", error);
       });
     console.log(datas);
-    res.render("newArticle", { data: datas });
+    res.render("newGalgameArticle", { data: datas });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/newArticle", async (req, res, next) => {
+  try {
+    res.render("newArticle");
   } catch (error) {
     next(error);
   }
@@ -93,7 +101,7 @@ app.get("/aboutme", (req, res, next) => {
 
 app.get("/test", (req, res, next) => {
   try {
-    console.log("Test");
+    res.render("newindex");
   } catch (error) {
     next(error);
   }
