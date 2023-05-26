@@ -1,13 +1,56 @@
+.headingBody {
+    background: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+.middleBody{
+    margin-top: 5px;
+}
+
 .mainblock__main{
     border-style: solid;
-    border-color: grey;
+    border-color: rgb(255, 255, 255);
     border-radius: 10px;
-    height: 200px;
+    height: 220px;
     margin: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0px;
 }
 .mainblock__img{
     background-image: url("../images/sd_202_40.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    border-radius: 15px;
+    max-height: 100%;
+}
+.mainblock__article{
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-right: 50px;
+}
+
+.articleblock__inf{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: gray;
+    font-size: 13px;
+}
+.articleblock__tag{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    color: gray;
+    font-size: 13px;
+}
+
+.mainRight__profile{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 400px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0px;
 }

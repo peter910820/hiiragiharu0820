@@ -52,6 +52,7 @@ a{
     font-size: 25px;
 }
 
+
 .navMain{
     font-size: 20px;
     color: snow;
@@ -92,10 +93,6 @@ a{
     font-weight:bold;
     
 }
-.bodyMask {
-    background: rgba(255, 255, 255, 0.85);
-    margin-bottom: 0px;
-}
 .timerSize{
     font-size: 25px;
     font-weight: bold;
@@ -113,6 +110,7 @@ a{
 }
 .mainText{
     color: #f7c17f;
+    margin: 10px;
 }
 .title{
     color : black;
