@@ -1,9 +1,36 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-
 new WOW().init();
+
+window.addEventListener("load", (event) => {
+  new cursoreffects.bubbleCursor();
+});
 
 let typed = new Typed(".typer", {
   strings: ["歡迎來到，", "海獺的個人網站"],
   typeSpeed: 80,
+});
+
+const iconGithub = document.getElementById("iconGithub");
+const iconTwitter = document.getElementById("iconTwitter");
+const iconYoutube = document.getElementById("iconYoutube");
+
+iconGithub.addEventListener("mouseover", () =>{
+  iconGithub.className = "fa-brands fa-github fa-shake";
+});
+iconTwitter.addEventListener("mouseover", () =>{
+  iconTwitter.className = "fa-brands fa-twitter fa-shake";
+});
+iconYoutube.addEventListener("mouseover", () =>{
+  iconYoutube.className = "fa-brands fa-youtube fa-shake";
+});
+
+iconGithub.addEventListener("mouseout", () =>{
+  iconGithub.className = "fa-brands fa-github";
+});
+iconTwitter.addEventListener("mouseout", () =>{
+  iconTwitter.className = "fa-brands fa-twitter";
+});
+iconYoutube.addEventListener("mouseout", () =>{
+  iconYoutube.className = "fa-brands fa-youtube";
 });

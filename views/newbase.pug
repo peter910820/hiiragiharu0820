@@ -14,11 +14,13 @@ html
     script(src='https://code.jquery.com/jquery-3.6.0.min.js')
 
     // link(rel='icon', href="{{ url_for('static', path='img/icon.ico') }}")
-
     link(rel="stylesheet", href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark.min.css")
     script(src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js")
     script(src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js")
     script(src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js")
+    
+    script(src="https://unpkg.com/cursor-effects@latest/dist/browser.js")
+    
     title 海獺的GALGAME記錄站
   body.body
     nav.navbar.navbar-light(style='background-color: #f7c17f;')
@@ -57,7 +59,7 @@ html
           div.col-9
             block main
           div.col-3
-            block mainRight
+            block right
         hr
         br
         .grey

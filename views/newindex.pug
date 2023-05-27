@@ -4,11 +4,38 @@ block content
   span.typer
   
 block main 
-  .mainblock__main.row
-    .mainblock__img.col-5
-    .mainblock__article.col-7
+  .mainBlock__galgameArticle.row
+    div
+      h2 Galgame文章總集
+    .galgameArticle__content.col-4
+      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
+      h5 WRITER:SeaotterMS
+      h5 TIME:2023-04-23
+      div(style="margin-top:30px")
+        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
+    .galgameArticle__content.col-4
+      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
+      h5 WRITER:SeaotterMS
+      h5 TIME:2023-04-23
+      div(style="margin-top:30px")
+        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
+    .galgameArticle__content.col-4
+      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
+      h5 WRITER:SeaotterMS
+      h5 TIME:2023-04-23
+      div(style="margin-top:30px")
+        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
+    .galgameArticle__content.col-4
+      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
+      h5 WRITER:SeaotterMS
+      h5 TIME:2023-04-23
+      div(style="margin-top:30px")
+        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
+  .mainBlock__mainArticle.row
+    .mainArticle__img.col-5
+    .mainArticle__main.col-7
       h4 MLTD 3D模組MMD教學
-      .articleblock__inf
+      .mainArticle__inf
         i.fa-regular.fa-calendar-check.fa-bounce.fa-lg 
         |  2022/08/20
         |  || 
@@ -16,9 +43,25 @@ block main
         |  SeaotterMS
       div
         span MLTD 3D模組MMD教學的教學
-      .articleblock__tag
+      .mainArticle__tag
         i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg
         |  程式設計
 
-block mainRight 
-  .mainRight__profile BBBBBBBBBBBBB
+block right 
+  .rightBlock__profile.text-center
+    .profile__picture
+      img.rounded-circle(src="/images/HARU_e110d.png", alt="image")
+    h3(style="margin-top: 10px") SeaotterMS
+    span 我喜歡吃瓜，跟我講更多瓜瓜!
+    .profile__block2(style="margin-top: 10px;background: rgba(255, 255, 255, 0.5);")
+      div
+        a(href="#") 文章: 200
+      div
+        a(href="#") Galgame: 200
+    .profile__icon
+      a(href="https://github.com/peter910820")
+        i#iconGithub(style="margin-right: 10px;").fa-brands.fa-github
+      a(href="https://twitter.com/seaotterMS")
+        i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
+      a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
+        i#iconYoutube.fa-brands.fa-youtube

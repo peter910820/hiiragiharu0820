@@ -8,17 +8,48 @@
 .middleBody{
     margin-top: 5px;
 }
-
-.mainblock__main{
+/* mainBlock */
+.mainBlock__galgameArticle{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0px;
+    padding-left: 20px;
+}
+.mainBlock__mainArticle{
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-radius: 10px;
     height: 220px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
     background: rgba(255, 255, 255, 0.75);
     margin-bottom: 0px;
 }
-.mainblock__img{
+/* galgameArticle */
+.galgameArticle__content{
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    height: 240px;
+    color: white;
+    margin-bottom: 10px;
+}
+.galgameArticle__contentTitle{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+/* mainArticle */
+.mainArticle__img{
     background-image: url("../images/sd_202_40.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,31 +57,46 @@
     border-radius: 15px;
     max-height: 100%;
 }
-.mainblock__article{
+.mainArticle__main{
     padding-left: 40px;
     padding-top: 40px;
     padding-right: 50px;
 }
-
-.articleblock__inf{
+.mainArticle__inf{
     margin-top: 10px;
     margin-bottom: 10px;
     color: gray;
     font-size: 13px;
 }
-.articleblock__tag{
+.mainArticle__tag{
     margin-top: 50px;
     margin-bottom: 10px;
     color: gray;
     font-size: 13px;
 }
-
-.mainRight__profile{
+/* rightBlock */
+.rightBlock__profile{
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-radius: 10px;
     height: 400px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     background: rgba(255, 255, 255, 0.75);
-    margin-bottom: 0px;
+}
+/* profile */
+.profile__picture{
+    margin-top: 10px;
+}
+.profile__picture img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    max-width: 100%;
+}
+.profile__icon{
+    color: rgb(116, 115, 115);
+    font-size: 30px;
+    margin-top: 10px;
 }
