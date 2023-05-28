@@ -4,9 +4,12 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/styles.css')
-    link(rel='stylesheet', href='/stylesheets/new.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+
+    block css 
+
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css")
     script(src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js")
@@ -23,9 +26,9 @@ html
     
     title 海獺的GALGAME記錄站
   body.body
-    nav.navbar.navbar-light(style='background-color: #f7c17f;')
+    nav.navbar.navbar-dark(style='background-color: rgba(0, 0, 0, 0.5);')
       .container-fluid
-        a.navMain.boldText(href='/') 海獺的GALGAME記錄站
+        a.navMain.boldText(href='/') 海獺的Blog
         button.navbar-toggler(type='button', data-bs-toggle='offcanvas', data-bs-target='#offcanvasNavbar', aria-controls='offcanvasNavbar')
           span.navbar-toggler-icon
         #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1', aria-labelledby='offcanvasNavbarLabel', style='background-color: #f7c17f;')
@@ -50,16 +53,36 @@ html
       #leftSection.col-1.text-center
       .col-10
         .row.headingBody
-          img.img(src='/images/main.png')
+          img.img(src="/images/main.png" style="max-height: 400px; object-fit: cover;")
           hr
-          h1.display-4.bol.mainText
-            block content
+          h1.display-4.bol.headingBody__mainText
+            span.typer
           hr
         .row.middleBody
-          div.col-9
+          .col-9
             block main
-          div.col-3
-            block right
+          .col-3
+            .rightBlock__notice.text-center.wow.animate__rotateInDownRight
+              i.fa-solid.fa-circle-exclamation.fa-shake(style="color: #ff0000;")  公告
+              br
+              span 這個站還在思考資料庫的部分
+            .rightBlock__profile.text-center.wow.animate__rotateInDownRight
+              .profile__picture
+                img.rounded-circle(src="/images/HARU_e110d.png", alt="image")
+              h3(style="margin-top: 10px") SeaotterMS
+              span 我喜歡吃瓜，跟我講更多瓜瓜!
+              .profile__block2(style="margin-top: 10px;background: rgba(255, 255, 255, 0.5);")
+                div
+                  a(href="#")= `文章: ${data}`
+                div
+                  a(href="#")= `哈哈: ${data}`
+              .profile__icon
+                a(href="https://github.com/peter910820")
+                  i#iconGithub(style="margin-right: 10px;").fa-brands.fa-github
+                a(href="https://twitter.com/seaotterMS")
+                  i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
+                a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
+                  i#iconYoutube.fa-brands.fa-youtube
         hr
         br
         .grey

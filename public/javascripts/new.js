@@ -7,7 +7,7 @@ window.addEventListener("load", (event) => {
 });
 
 let typed = new Typed(".typer", {
-  strings: ["歡迎來到，", "海獺的個人網站"],
+  strings: ["Welcome to,", "SeaotterMS Blog"],
   typeSpeed: 80,
 });
 
@@ -33,4 +33,9 @@ iconTwitter.addEventListener("mouseout", () =>{
 });
 iconYoutube.addEventListener("mouseout", () =>{
   iconYoutube.className = "fa-brands fa-youtube";
+});
+
+let galgameTyped = new Typed("#galgameArticleTitle", {
+  strings: ["Galgame文章總集"],
+  typeSpeed: 80,
 });

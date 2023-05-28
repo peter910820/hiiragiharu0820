@@ -1,41 +1,69 @@
-function insertEffect(effect){
-  let ex = document.getElementById("experience");
+/* eslint-disable no-undef */
+
+$(document).ready(function() {
+  let width = $("#markdown").width();
+  $("#translation").width(width+50);
+
+  $(document).mousemove(function() {
+    let height = $("#markdown").height();
+    $("#translation").height(height+10);
+  });
+
+  $(window).on("resize", function() {
+    let width = $("#markdown").width();
+    $("#translation").width(width+50);
+  });
+});
+
+function insertMarkdown(element){
+  let input = document.getElementById("markdown");
+  let text = input.value;
+  let start = input.selectionStart;
+  let end = input.selectionEnd;
+  if(element == "```"){
+    final = text.substring(0,start) + element + text.substring(start, end) + "\n" + element + text.substring(end);
+  }else if(element == "* "){
+    final = text.substring(0,start) + element + text.substring(start, end) + text.substring(end);
+  }else{
+    final = text.substring(0,start) + element + text.substring(start, end) + element + text.substring(end);
+  }
+  input.value = final;
+}
+function insertHasendtag(effect){
+  let ex = document.getElementById("markdown");
   let text = ex.value;
   let start = ex.selectionStart;
   let end = ex.selectionEnd;
-  let final = text.substring(0,start) + `<${effect}>` + text.substring(start, end) + `</${effect}>` + text.substring(end);
+  final = text.substring(0,start) + `<${effect}>` + text.substring(start, end) + `</${effect}>` + text.substring(end);
   ex.value = final;
 }
-function insertEffect2(effect){
-  let ex = document.getElementById("experience");
+function insertWithoutendtag(effect){
+  let ex = document.getElementById("markdown");
   let text = ex.value;
   let start = ex.selectionStart;
   let later = text.substring(start);
-  let final = text.substring(0,start) + `</${effect}>` + later;
+  final = text.substring(0,start) + `</${effect}>` + later;
   ex.value = final;
 }
-// 自動插入<br>標籤
-// document.body.addEventListener('keydown',function(event){
-//     if(event.key == 'Enter'){
-//         let ex = document.getElementById("experience");
-//         let start = ex.selectionStart;
-//         let text = ex.value;
-//         if(start != 0) {
-//             final = text.substring(0,start) + `<br>` + text.substring(start)
-//             ex.value = final;
-//         }
-//     }
-// });
+function cl(){
+  let converter = new showdown.Converter();
+  let md = document.getElementById("markdown").value;
+  let html = converter.makeHtml(md);
+  document.getElementById("translation").innerHTML = html;
+  divValue = html.replace(/\t/g, "\\u0009"); // 將 \t 替換為 \u0009
+  divValue = html.replace(/\n/g, "\\u000A"); // 將 \n 替換為 \u000A
+  document.getElementById("translation__insert").value = divValue;
+  console.log(document.getElementById("translation__insert").value);
+}
 
 $(document).ready(function() {
-  // 监听颜色选择器的 change 事件
   $("#color").change(function() {
     let color = $(this).val();
-    let ex = document.getElementById("experience");
+    let ex = document.getElementById("markdown");
     let text = ex.value;
     let start = ex.selectionStart;
     let end = ex.selectionEnd;
-    let final = text.substring(0,start) + `<font color="${color}">` + text.substring(start, end) + "</font>" + text.substring(end);
+    final = text.substring(0,start) + `<font color="${color}">` + text.substring(start, end) + "</font>" + text.substring(end);
     ex.value = final;
     // $("#experience").append(color);
   });

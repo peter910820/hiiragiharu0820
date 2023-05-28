@@ -1,9 +1,9 @@
 export const cn = {
-  host: "dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com",
+  host: "dpg-chplffm7avjb90nfsls0-a.oregon-postgres.render.com",
   port: 5432,
-  database: "ioriweb",
-  user: "seaotter",
-  password: "OC5okdJZpXu3zo8RSmpKyyowcfrawdPh",
+  database: "hiiragiharu0820",
+  user: "seaotterms",
+  password: "ORhOr2dfCSW6rOUxD1JxtsucZl76WTE4",
   ssl: { rejectUnauthorized: false },
   allowExitOnIdle: true
 };

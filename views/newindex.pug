@@ -1,12 +1,27 @@
 extend newbase
 
-block content
-  span.typer
-  
+block css
+  link(rel='stylesheet', href='/stylesheets/mainPage.css')
+
 block main 
-  .mainBlock__galgameArticle.row
+  .mainBlock__galgameArticle.row.wow.animate__jackInTheBox
     div
-      h2 Galgame文章總集
+      span#galgameArticleTitle.galgameArticle__title
+    .galgameArticle__content.col-4
+      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
+      h5 
+        i.fa-solid.fa-pen-nib.fa-fade
+        |  SeaotterMS
+      h5
+        i.fa-solid.fa-clock.fa-fade
+        |  2023-04-23
+      h6(style="margin-top:30px")
+        i.fa-sharp.fa-solid.fa-tags.fa-bounce
+        a(href="#")
+          span.galgameArticle__tags 泣系類型
+        | .
+        a(href="#")
+          span.galgameArticle__tags KEY
     .galgameArticle__content.col-4
       h4.galgameArticle__contentTitle 星空鉄道とシロの旅
       h5 WRITER:SeaotterMS
@@ -25,13 +40,7 @@ block main
       h5 TIME:2023-04-23
       div(style="margin-top:30px")
         i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
-    .galgameArticle__content.col-4
-      h4.galgameArticle__contentTitle 星空鉄道とシロの旅
-      h5 WRITER:SeaotterMS
-      h5 TIME:2023-04-23
-      div(style="margin-top:30px")
-        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg tag
-  .mainBlock__mainArticle.row
+  .mainBlock__mainArticle.row.wow.animate__jackInTheBox
     .mainArticle__img.col-5
     .mainArticle__main.col-7
       h4 MLTD 3D模組MMD教學
@@ -46,22 +55,3 @@ block main
       .mainArticle__tag
         i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg
         |  程式設計
-
-block right 
-  .rightBlock__profile.text-center
-    .profile__picture
-      img.rounded-circle(src="/images/HARU_e110d.png", alt="image")
-    h3(style="margin-top: 10px") SeaotterMS
-    span 我喜歡吃瓜，跟我講更多瓜瓜!
-    .profile__block2(style="margin-top: 10px;background: rgba(255, 255, 255, 0.5);")
-      div
-        a(href="#") 文章: 200
-      div
-        a(href="#") Galgame: 200
-    .profile__icon
-      a(href="https://github.com/peter910820")
-        i#iconGithub(style="margin-right: 10px;").fa-brands.fa-github
-      a(href="https://twitter.com/seaotterMS")
-        i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
-      a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
-        i#iconYoutube.fa-brands.fa-youtube

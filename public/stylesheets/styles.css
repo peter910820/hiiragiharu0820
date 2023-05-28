@@ -12,6 +12,10 @@ a{
 a:hover{
     color: inherit;
 }
+::selection {
+    background-color: yellowgreen;
+    color: white;
+}
 .grey:hover{
     color: #999595;
 }
@@ -111,10 +115,6 @@ a:hover{
     padding-top: 10px;
     border-radius: 30px;
     width:100%
-}
-.mainText{
-    color: blue;
-    margin: 10px;
 }
 .title{
     color : black;

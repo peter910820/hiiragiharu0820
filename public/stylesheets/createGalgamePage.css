@@ -1,0 +1,30 @@
+.mainBlock__form{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mainBlock__hint{
+    color: red;
+}
+
+#translation{
+    background-color: #fff;
+    overflow: scroll;
+}
+#translation::-webkit-scrollbar {
+    display: none;
+}
+
+.textarea__markdown {
+    height: 300px;
+}
+.input__hidden{
+    display: none;
+}

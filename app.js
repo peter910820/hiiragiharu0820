@@ -32,6 +32,10 @@ app.get("/", async (req, res, next) => {
   }
 });
 
+
+app.get("/galgamearticle/test", async (req, res) => {
+  res.render("newNewGagalgameArticle");
+});
 app.get("/galgamearticle/:article", async (req, res, next) => {
   try {
     let datas = await galgameArticleShow(req.params.article);
@@ -101,7 +105,7 @@ app.get("/aboutme", (req, res, next) => {
 
 app.get("/test", (req, res, next) => {
   try {
-    res.render("newindex");
+    res.render("newNewGagalgameArticle", { data: "111"} );
   } catch (error) {
     next(error);
   }

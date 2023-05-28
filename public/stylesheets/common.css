@@ -1,0 +1,134 @@
+::selection {
+    background-color: yellowgreen;
+    color: white;
+}
+/* Block for body */
+.headingBody {
+    background: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    max-height: 600px;
+}
+.middleBody{
+    margin-top: 5px;
+}
+/* headingBody */
+.headingBody__mainText{
+    color: cornflowerblue;
+    font-weight: bold;
+    margin: 10px;
+}
+/* rightBlock */
+.rightBlock__notice{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.75);
+}
+.rightBlock__profile{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.75);
+}
+/* profile */
+.profile__picture{
+    margin-top: 10px;
+}
+.profile__picture img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    max-width: 100%;
+}
+.profile__icon{
+    color: rgb(116, 115, 115);
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+
+h1{
+    font-family:'en';
+}
+
+h3:hover{
+    color: wheat;
+}
+a{
+    color: inherit;
+    text-decoration:none;
+}
+a:hover{
+    color: inherit;
+}
+.grey:hover{
+    color: #999595;
+}
+.navMain{
+    font-size: 20px;
+    color: snow;
+}
+
+.navMain:hover{
+    font-size: 20px;
+    color: snow;
+}
+
+.navTitle:hover{
+    font-size: 20px;
+}
+.boldText{font-weight:bold;}
+.body{
+    background-image: url("../images/cover.png");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'ch';
+    font-weight:bold;
+    
+}
+.img{
+    padding-top: 10px;
+    border-radius: 30px;
+    width:100%
+}
+.textJP{
+    font-family:'851MkPOP';
+}
+.articleMain{
+    border: 5px dashed cornflowerblue;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.articleTitle{
+    font-weight: bold;
+}
+.grey{
+    color: #999595;
+    text-align: center;
+}
+.grey:hover{
+    color: #999595;
+}
+@font-face {
+    font-family:'851MkPOP';
+    src:url('../fonts/851MkPOP_002.ttf');
+}
+@font-face {
+    font-family:'ch';
+    src:url('../fonts/GenJyuuGothic-Medium.ttf');
+}
+@font-face {
+    font-family:'en';
+    src:url('../fonts/DisposableDroidBB_bld.ttf');
+}
