@@ -15,9 +15,9 @@
 
 ## ToDo List
 
-- [] 修正Galgame文章輸入之當前時間以及opUrl程式碼缺陷
+- [ ] 修正Galgame文章輸入之當前時間以及opUrl程式碼缺陷
   - [x] fix
-  - [] test
+  - [ ] test
 - [ ] 實現更新Galgame文章功能
 - [ ] 將檔案名稱統一化
 - [ ] 將css命名規則統一化
