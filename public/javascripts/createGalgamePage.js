@@ -13,6 +13,16 @@ $(document).ready(function() {
     let width = $("#markdown").width();
     $("#translation").width(width+50);
   });
+  $("#color").change(function() {
+    let color = $(this).val();
+    let ex = document.getElementById("markdown");
+    let text = ex.value;
+    let start = ex.selectionStart;
+    let end = ex.selectionEnd;
+    final = text.substring(0,start) + `<font color="${color}">` + text.substring(start, end) + "</font>" + text.substring(end);
+    ex.value = final;
+    // $("#experience").append(color);
+  })
 });
 
 function insertMarkdown(element){
@@ -31,10 +41,11 @@ function insertMarkdown(element){
 }
 function insertHasendtag(effect){
   let ex = document.getElementById("markdown");
+  console.log("#".repeat(effect[1]));
   let text = ex.value;
   let start = ex.selectionStart;
   let end = ex.selectionEnd;
-  final = text.substring(0,start) + `<${effect}>` + text.substring(start, end) + `</${effect}>` + text.substring(end);
+  final = text.substring(0,start) + "#".repeat(effect[1]) + " " + text.substring(start, end)+ text.substring(end);
   ex.value = final;
 }
 function insertWithoutendtag(effect){
@@ -55,16 +66,3 @@ function cl(){
   document.getElementById("translation__insert").value = divValue;
   console.log(document.getElementById("translation__insert").value);
 }
-
-$(document).ready(function() {
-  $("#color").change(function() {
-    let color = $(this).val();
-    let ex = document.getElementById("markdown");
-    let text = ex.value;
-    let start = ex.selectionStart;
-    let end = ex.selectionEnd;
-    final = text.substring(0,start) + `<font color="${color}">` + text.substring(start, end) + "</font>" + text.substring(end);
-    ex.value = final;
-    // $("#experience").append(color);
-  });
-});

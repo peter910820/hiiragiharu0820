@@ -61,10 +61,6 @@
 h1{
     font-family:'en';
 }
-
-h3:hover{
-    color: wheat;
-}
 a{
     color: inherit;
     text-decoration:none;

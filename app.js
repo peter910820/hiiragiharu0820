@@ -17,58 +17,57 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "pug");
 
+/*route*/
 app.get("/", async (req, res, next) => {
   try {
-    let datas = await db.any("SELECT * FROM galgameTitle;")
+    let _datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article;")
       .then((data) => {
         return data;
       }).catch((error) => {
         console.log("ERROR:", error);
       });
-    console.log(datas);
-    res.render("index", { data: datas });
+    console.log(_datas);
+    res.render("index", { datas: _datas });
   } catch (error) {
     next(error);
   }
 });
 
-
-app.get("/galgamearticle/test", async (req, res) => {
-  res.render("newNewGagalgameArticle");
-});
 app.get("/galgamearticle/:article", async (req, res, next) => {
   try {
-    let datas = await galgameArticleShow(req.params.article);
-    res.render("article", { data: datas[0] });
+    let _datas = await galgameArticleShow(req.params.article);
+    let _ = _datas[0].content.replaceAll("\\u0009", "\t").replaceAll("\\u000A", "\n");
+    _datas[0].content = _;
+    res.render("galgameArticle", { data: _datas[0] });
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/newGalgameArticle", async (req, res, next) => {
+// app.get("/newGalgameArticle", async (req, res, next) => {
+//   try {
+//     let datas = await db.any("SELECT * FROM tag;")
+//       .then((data) => {
+//         return data;
+//       }).catch((error) => {
+//         console.log("ERROR:", error);
+//       });
+//     console.log(datas);
+//     res.render("newGalgameArticle", { data: datas });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+app.get("/newgalgamearticle", async (req, res, next) => {
   try {
-    let datas = await db.any("SELECT * FROM tag;")
-      .then((data) => {
-        return data;
-      }).catch((error) => {
-        console.log("ERROR:", error);
-      });
-    console.log(datas);
-    res.render("newGalgameArticle", { data: datas });
+    res.render("newGalgameArticle");
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/newArticle", async (req, res, next) => {
-  try {
-    res.render("newArticle");
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.post("/submit", async (req, res, next) => {
+app.post("/galgamesubmit", async (req, res, next) => {
   try {
     if (req.body.information[req.body.information.length - 1] == "0000") {
       req.body.information.pop();
@@ -76,8 +75,8 @@ app.post("/submit", async (req, res, next) => {
       req.body.information.forEach(element => {
         articleArray.push(element);
       });
-      articleArray[6] = "https://www.youtube.com/embed/" + articleArray[6].substr(32);
-      galgameArticleInsert(articleArray, `${req.body.information[4]},${req.body.information[5]}`);
+      // articleArray[6] = "https://www.youtube.com/embed/" + articleArray[6].substr(32);
+      galgameArticleInsert(articleArray);
     } else {
       console.log("ERROR: password error");
     }

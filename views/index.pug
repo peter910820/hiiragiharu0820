@@ -1,24 +1,41 @@
-extend base
+extend newbase
 
-block content
-  h2.textJP MAIN-PAGE
+block css
+  link(rel='stylesheet', href='/stylesheets/mainPage.css')
+
 block main 
-  div
-    h3.dropdown-toggle(type='button', data-bs-toggle='collapse', data-bs-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample') Galgame攻略完畢心得
-    #collapseExample.collapse
-      each item in data
-        hr
-        div.row
-          div.col-6
-            a.galgameTitle(href=`/galgamearticle/${item["title"]}`,type='button')= item['title']
-          - let tag_name = item['tag'].split(',') 
-            div.col-3
-              each tag in tag_name
-                a.galgameTitle(href=`/galgame/tag/${tag}`, type="button")
-                button.btn.btn-outline-warning(type='button')= tag
-            div.col-3
-              span.mainArticleTime= item["create_time"]
-    hr
+  .mainBlock__galgameArticle.row.wow.animate__jackInTheBox
     div
-      h3.dropdown-toggle(type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2") 預計要完Galgame(點我展開)
-      div.collapse(id="collapse2") 櫻花萌放拉，問就是櫻花萌放。
+      span#galgameArticleTitle.galgameArticle__title
+    each article in datas
+      .galgameArticle__content.col-4
+        a(href=`galgamearticle/${article["title"]}`)
+          h4.galgameArticle__contentTitle= article["title"]
+          h5 
+            i.fa-solid.fa-pen-nib.fa-fade
+            |  #{article["author"]}
+          h5
+            i.fa-solid.fa-clock.fa-fade
+            |  #{article["create_time"]}
+          - let tag_name = article["tag"].split(',') 
+          h6(style="margin-top:30px")
+            i.fa-sharp.fa-solid.fa-tags.fa-bounce
+            each tag in tag_name
+              a(href=`/tag/${tag}`)
+                span.galgameArticle__tags= tag
+              | .
+  .mainBlock__mainArticle.row.wow.animate__jackInTheBox
+    .mainArticle__img.col-5
+    .mainArticle__main.col-7
+      h4 MLTD 3D模組MMD教學
+      .mainArticle__inf
+        i.fa-regular.fa-calendar-check.fa-bounce.fa-lg 
+        |  2022/08/20
+        |  || 
+        i.fa-solid.fa-at.fa-flip.fa-lg
+        |  SeaotterMS
+      div
+        span MLTD 3D模組MMD教學的教學
+      .mainArticle__tag
+        i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg
+        |  程式設計

@@ -1,0 +1,42 @@
+extend newbase
+
+block css
+  link(rel='stylesheet', href='/stylesheets/galgamePage.css')
+
+block main 
+  .mainBlock__article.row.wow.animate__slideInLeft
+    h1(style="margin-top:10px; font-weight: bold;")= `${data.title}-讀後感想`
+    span.mainBlock__subTitle
+      a(href="#", style="margin-right:5px")
+        i.fa-solid.fa-pen-nib.fa-fade(style="margin-right:5px")
+        | #{data.author}
+      | |
+      a(href="#", style="margin-right:5px; margin-left:5px")
+        i.fa-solid.fa-clock.fa-fade(style="margin-right:5px")
+        | #{data.create_time}
+      | |
+      - let tag_name = data.tag.split(',')
+      i.fa-sharp.fa-solid.fa-tags.fa-fade(style="margin-right:5px; margin-left:5px")
+      each tag in tag_name
+        a(href=`/tag/${tag}`, style="margin-right:5px; margin-left:5px")= tag
+    hr
+    span.mainBlock__summary
+      h4 Summary:
+      h6(style="margin-right:20px")
+        i.fa-solid.fa-newspaper
+        |  #{data.title}
+      h6(style="margin-right:20px")
+        i.fa-solid.fa-building
+        |  #{data.company}
+      h6(style="margin-right:20px")
+        i.fa-sharp.fa-solid.fa-business-time
+        |  #{data.release_date}
+      h6(style="margin-right:20px")
+        i.fa-sharp.fa-solid.fa-globe
+        a(href=`${data.official_website}`)= ` ${data.official_website}`
+    span.mainBlock__op
+      h4 Opening:
+      .mainBlock__opVideo
+        iframe(src=`${data.op_url}`, allowfullscreen)
+    span.mainBlock__content
+      | !{data.content}
