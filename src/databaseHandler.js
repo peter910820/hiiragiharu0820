@@ -4,7 +4,7 @@ const db = pgp()(cn);
 
 export const galgameArticleInsert = async (articleArray) => {
   try {
-    let now = new Date("2023-05-01 13:27:57.281509");
+    let now = new Date();
 
     const insertQuery = `
           INSERT INTO galgame_article (author, title, company, release_date, official_website, op_url, content, tag, create_time)
@@ -20,7 +20,6 @@ export const galgameArticleInsert = async (articleArray) => {
       op_url: articleArray[6],
       content: articleArray[7],
       tag: `${articleArray[4]},${articleArray[2]}`,
-      create_time: ""
     };
             
     const articleResult = await db.one(insertQuery, [

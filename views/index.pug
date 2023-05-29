@@ -1,4 +1,4 @@
-extend newbase
+extend base
 
 block css
   link(rel='stylesheet', href='/stylesheets/mainPage.css')
@@ -11,10 +11,10 @@ block main
       .galgameArticle__content.col-4
         a(href=`galgamearticle/${article["title"]}`)
           h4.galgameArticle__contentTitle= article["title"]
-          h5 
+          h6 
             i.fa-solid.fa-pen-nib.fa-fade
             |  #{article["author"]}
-          h5
+          h6
             i.fa-solid.fa-clock.fa-fade
             |  #{article["create_time"]}
           - let tag_name = article["tag"].split(',') 

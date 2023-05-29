@@ -20,7 +20,7 @@ app.set("view engine", "pug");
 /*route*/
 app.get("/", async (req, res, next) => {
   try {
-    let _datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article;")
+    let _datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
       .then((data) => {
         return data;
       }).catch((error) => {
@@ -75,7 +75,7 @@ app.post("/galgamesubmit", async (req, res, next) => {
       req.body.information.forEach(element => {
         articleArray.push(element);
       });
-      // articleArray[6] = "https://www.youtube.com/embed/" + articleArray[6].substr(32);
+      articleArray[6] = "https://www.youtube.com/embed/" + articleArray[6].substr(32);
       galgameArticleInsert(articleArray);
     } else {
       console.log("ERROR: password error");

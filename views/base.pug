@@ -4,8 +4,11 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+
+    block css 
 
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css")
@@ -14,19 +17,21 @@ html
     script(src='https://code.jquery.com/jquery-3.6.0.min.js')
 
     // link(rel='icon', href="{{ url_for('static', path='img/icon.ico') }}")
-
     link(rel="stylesheet", href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark.min.css")
     script(src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js")
     script(src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js")
     script(src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js")
+    
+    script(src="https://unpkg.com/cursor-effects@latest/dist/browser.js")
+    
     title 海獺的GALGAME記錄站
   body.body
-    nav.navbar.navbar-light(style='background-color: #f7c17f;')
+    nav.navbar.navbar-dark(style='background-color: rgba(0, 0, 0, 0.5);')
       .container-fluid
-        a.navMain.boldText(href='/') 海獺的GALGAME記錄站
+        a.navMain.boldText(href='/') 海獺的Blog
         button.navbar-toggler(type='button', data-bs-toggle='offcanvas', data-bs-target='#offcanvasNavbar', aria-controls='offcanvasNavbar')
           span.navbar-toggler-icon
-        #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1', aria-labelledby='offcanvasNavbarLabel', style='background-color: #f7c17f;')
+        #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1', aria-labelledby='offcanvasNavbarLabel', style='background-color: rgba(0, 0, 0, 0.5);')
           .offcanvas-header
             h5#offcanvasNavbarLabel.offcanvas-title.navMain.boldText 海獺的GALGAME記錄站
             button.btn-close.text-reset(type='button', data-bs-dismiss='offcanvas', aria-label='Close')
@@ -41,31 +46,48 @@ html
               li.nav-item
                 a.nav-link.active.navTitle(href='/newArticle') 新增文章
               li.nav-item
-                a.nav-link.active.navTitle(href='/newGalgameArticle') 新增GALGAME文章
-              li.nav-item
-                a.nav-link.active.navTitle(href='/databaseOperate') 資料庫操作
+                a.nav-link.active.navTitle(href='/newgalgamearticle') 新增GALGAME文章
     .row.container-fluid
-      #leftSection.col-2.text-center
-      .col-8.bodyMask
-        div
-          img.img(src='/images/main.png')
+      #leftSection.col-1.text-center
+      .col-10
+        .row.headingBody
+          img.img(src="/images/main.png" style="max-height: 400px; object-fit: cover;")
+          hr
+          h1.display-4.bol.headingBody__mainText
+            span.typer
+          hr
+        .row.middleBody
+          .col-9
+            block main
+          .col-3
+            .rightBlock__notice.text-center.wow.animate__rotateInDownRight
+              i.fa-solid.fa-circle-exclamation.fa-shake(style="color: #ff0000;")  公告
+              br
+              span 這個站還在思考資料庫的部分
+            .rightBlock__profile.text-center.wow.animate__rotateInDownRight
+              .profile__picture
+                img.rounded-circle(src="/images/HARU_e110d.png", alt="image")
+              h3(style="margin-top: 10px") SeaotterMS
+              span 我喜歡吃瓜，跟我講更多瓜瓜!
+              .profile__block2(style="margin-top: 10px;background: rgba(255, 255, 255, 0.5);")
+                div
+                  a(href="#")= `文章: ${data}`
+                div
+                  a(href="#")= `哈哈: ${data}`
+              .profile__icon
+                a(href="https://github.com/peter910820")
+                  i#iconGithub(style="margin-right: 10px;").fa-brands.fa-github
+                a(href="https://twitter.com/seaotterMS")
+                  i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
+                a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
+                  i#iconYoutube.fa-brands.fa-youtube
         hr
-        div
-          h1.display-4.bol.mainText 海獺的Galgame記錄站
-          block content
-          hr.my-4
-        div
-        block main
-        hr
-        br
-        br
-        br
-        br
         br
         .grey
           a 技術整合:SeaotterMS
       br
-      .col-2
+      .col-1
     script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/new.js')
     block script
     // script(src='/static/js/articleTool.js')
