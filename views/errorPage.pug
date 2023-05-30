@@ -1,0 +1,11 @@
+extend base
+
+block main
+  .mainBlock__errorPage.row.wow.animate__flipInX
+    .col-12
+      h2(style="margin-top:5px;font-weight:bold;") 發生錯誤，請聯繫管理員:
+      span(style="color:red;font-size:20px").col-12= error
+    .col-12.text-center(style="color:blue;")
+      span(style="font-size:100px")= status
+      br
+      span(style="font-size:30px")= statusDescribe

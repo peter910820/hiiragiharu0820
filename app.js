@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "pug");
 
-/*route*/
+/* route */
 app.get("/", async (req, res, next) => {
   try {
     let _datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
@@ -44,6 +44,13 @@ app.get("/galgamearticle/:article", async (req, res, next) => {
   }
 });
 
+app.get("/galgameTag/:tag", async (req, res, next) => {
+  try {
+    res.render("galgameTag");
+  } catch (error) {
+    next(error);
+  }
+});
 // app.get("/newGalgameArticle", async (req, res, next) => {
 //   try {
 //     let datas = await db.any("SELECT * FROM tag;")
@@ -110,23 +117,10 @@ app.get("/test", (req, res, next) => {
   }
 });
 
-app.get("/haru", async (req, res, next) => {
-  try {
-    let datas = await db.any("SELECT * FROM galgameTitle;")
-      .then((data) => {
-        // console.log('DATA:', data);
-        return data;
-      })
-      .catch((error) => {
-        console.log("ERROR:", error);
-      });
-    console.log(datas[0]);
-    res.render("index", { data: datas });
-  } catch (error) {
-    next(error);
-  }
+app.get("/:_", async (req, res) => {
+  return res.render("errorPage", {error: "找不到網頁", status: 404, statusDescribe: "404 Not Found"});
 });
-
+/* app.use */
 app.use(express.static("public"));
 app.use(errorHandler);
 

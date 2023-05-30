@@ -18,7 +18,7 @@ block main
       - let tag_name = data.tag.split(',')
       i.fa-sharp.fa-solid.fa-tags.fa-fade(style="margin-right:5px; margin-left:5px")
       each tag in tag_name
-        a(href=`/tag/${tag}`, style="margin-right:5px; margin-left:5px")= tag
+        a(href=`/galgameTag/${tag}`, style="margin-right:5px; margin-left:5px")= tag
     hr
     span.mainBlock__summary
       h4 Summary:
