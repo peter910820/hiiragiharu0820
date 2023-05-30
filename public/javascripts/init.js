@@ -4,6 +4,6 @@ window.addEventListener("load", function() {
   
   loadingScreen.style.display = "none";
   content.classList.remove("hidden");
+  
+  new WOW().init();
 });
-
-new WOW().init();
