@@ -15,7 +15,7 @@ html
     script(src="https://kit.fontawesome.com/8f1caa7fe1.js", crossorigin="anonymous")
     script(src='https://code.jquery.com/jquery-3.6.0.min.js')
 
-    // link(rel='icon', href="{{ url_for('static', path='img/icon.ico') }}")
+    link(rel='icon', href="/a.ico")
     link(rel="stylesheet", href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark.min.css")
     script(src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js")
     script(src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js")
@@ -81,6 +81,10 @@ html
                   i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
                 a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
                   i#iconYoutube.fa-brands.fa-youtube
+            .rightBlock__profile.text-center.wow.animate__rotateInDownRight
+              h3(style="margin-top: 10px") TAGs
+                a(href=`/tags`, style="margin-top: 10px")
+                  h4 TAG總覽
         hr
         br
         .grey

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+
 window.addEventListener("load", (event) => {
   new cursoreffects.bubbleCursor();
 });

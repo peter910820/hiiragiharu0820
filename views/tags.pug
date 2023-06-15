@@ -1,0 +1,10 @@
+extend base
+
+block main
+  .mainBlock__errorPage.row.wow.animate__flipInX
+    .col-12
+      h2(style="margin-top:5px;font-weight:bold;") Tag總覽:
+      h6(style="margin-top:30px")
+        each d in datas
+          a(href=`/tags/${d.name}`, style="margin-top: 10px")
+            span(style="margin-top:5px;font-weight:bold;")= `${d.name}  `

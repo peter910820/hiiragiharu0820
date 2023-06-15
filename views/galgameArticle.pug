@@ -11,14 +11,14 @@ block main
         i.fa-solid.fa-pen-nib.fa-fade(style="margin-right:5px")
         | #{data.author}
       | |
-      a(href="#", style="margin-right:5px; margin-left:5px")
+      a(style="margin-right:5px; margin-left:5px")
         i.fa-solid.fa-clock.fa-fade(style="margin-right:5px")
-        | #{data.create_time}
+        | #{data.create_time.toLocaleString()}
       | |
       - let tag_name = data.tag.split(',')
       i.fa-sharp.fa-solid.fa-tags.fa-fade(style="margin-right:5px; margin-left:5px")
       each tag in tag_name
-        a(href=`/galgameTag/${tag}`, style="margin-right:5px; margin-left:5px")= tag
+        a(href=`/tags/${tag}`, style="margin-right:5px; margin-left:5px")= tag
     hr
     span.mainBlock__summary
       h4 Summary:

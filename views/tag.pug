@@ -1,0 +1,27 @@
+extend base 
+
+block css
+  link(rel='stylesheet', href='/stylesheets/mainPage.css')
+
+block main
+  each article in datas
+    .mainBlock__mainArticle.row.wow.animate__jackInTheBox
+      .mainArticle__noneImg.col-5
+      .mainArticle__main.col-7
+        a(href=`/galgamearticle/${article["title"]}`)
+          h4=article.title
+        .mainArticle__inf
+          i.fa-regular.fa-calendar-check.fa-bounce.fa-lg 
+          |  #{article.create_time.toLocaleString()}
+          |  || 
+          a(href=`/author/${article["author"]}`)
+            i.fa-solid.fa-at.fa-flip.fa-lg
+            |  #{article.author}
+        div
+          span=article.title
+        - let tag_name = article.tag.split(',')
+        .mainArticle__tag
+          each tag in tag_name
+            a(href=`/tags/${tag}`)
+              i.fa-sharp.fa-solid.fa-tags.fa-beat-fade.fa-lg
+              |  #{`${tag} `}

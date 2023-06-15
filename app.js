@@ -39,15 +39,39 @@ app.get("/galgamearticle/:article", async (req, res, next) => {
     let _datas = await galgameArticleShow(req.params.article);
     let _ = _datas[0].content.replaceAll("\\u0009", "\t").replaceAll("\\u000A", "\n");
     _datas[0].content = _;
-    res.render("galgameArticle", { data: _datas[0] });
+    res.render("galgameArticle", {data: _datas[0]});
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/galgameTag/:tag", async (req, res, next) => {
+app.get("/tags", async (req, res, next) => {
   try {
-    res.render("galgameTag");
+    let datas = await db.any("SELECT * FROM tag;");
+    console.log(datas);
+    res.render("tags", {datas: datas});
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/tags/:tag", async (req, res, next) => {
+  try {
+    let datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
+      .then((data) => {
+        const data_tags = [];
+        data.forEach((item) => {
+          let tags = item.tag.split(",");
+          if(tags.includes(req.params.tag)){
+            data_tags.push(item);
+          }
+        });
+        return data_tags;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
+    console.log(datas);
+    res.render("tag", {datas: datas});
   } catch (error) {
     next(error);
   }

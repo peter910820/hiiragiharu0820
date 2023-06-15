@@ -9,19 +9,19 @@ block main
       span#galgameArticleTitle.galgameArticle__title
     each article in datas
       .galgameArticle__content.col-4
-        a(href=`galgamearticle/${article["title"]}`)
+        a(href=`/galgamearticle/${article["title"]}`)
           h4.galgameArticle__contentTitle= article["title"]
           h6 
             i.fa-solid.fa-pen-nib.fa-fade
             |  #{article["author"]}
           h6
             i.fa-solid.fa-clock.fa-fade
-            |  #{article["create_time"]}
+            |  #{article.create_time.toLocaleString()}
           - let tag_name = article["tag"].split(',') 
           h6(style="margin-top:30px")
             i.fa-sharp.fa-solid.fa-tags.fa-bounce
             each tag in tag_name
-              a(href=`/galgameTag/${tag}`)
+              a(href=`/tags/${tag}`)
                 span.galgameArticle__tags= tag
               | .
   .mainBlock__mainArticle.row.wow.animate__jackInTheBox
