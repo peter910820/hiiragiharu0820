@@ -60,11 +60,11 @@ html
           .col-9
             block main
           .col-3
-            .rightBlock__notice.text-center.wow.animate__rotateInDownRight
+            .noticeBlock.text-center.wow.animate__rotateInDownRight
               i.fa-solid.fa-circle-exclamation.fa-shake(style="color: #ff0000;")  公告
               br
-              span 這個站還在思考資料庫的部分
-            .rightBlock__profile.text-center.wow.animate__rotateInDownRight
+              span 往下滑可以看到酷酷的tag標籤新功能
+            .profileBlock.text-center.wow.animate__rotateInDownRight
               .profile__picture
                 img.rounded-circle(src="/images/HARU_e110d.png", alt="image")
               h3(style="margin-top: 10px") SeaotterMS
@@ -81,10 +81,14 @@ html
                   i#iconTwitter(style="margin-right: 10px;").fa-brands.fa-twitter
                 a(href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g")
                   i#iconYoutube.fa-brands.fa-youtube
-            .rightBlock__profile.text-center.wow.animate__rotateInDownRight
+            //- tagBlock
+            .tagBlock.text-center.wow.animate__rotateInDownRight
               h3(style="margin-top: 10px") TAGs
                 a(href=`/tags`, style="margin-top: 10px")
                   h4 TAG總覽
+              .tagBlock__content
+                each tag in tags
+                  a(href=`/tags/${tag.name}`)= tag.name
         hr
         br
         .grey
@@ -92,6 +96,6 @@ html
       br
       .col-1
     script(src="https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.min.js")
-    script(src='/javascripts/new.js')
+    script(src='/javascripts/common.js')
     block script
     // script(src='/static/js/articleTool.js')

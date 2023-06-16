@@ -14,6 +14,21 @@ const iconGithub = document.getElementById("iconGithub");
 const iconTwitter = document.getElementById("iconTwitter");
 const iconYoutube = document.getElementById("iconYoutube");
 
+const tagBlock = document.querySelector(".tagBlock");
+const aElements = tagBlock.querySelectorAll("a");
+
+aElements.forEach((aElement) =>{
+  let randomColor = () =>{
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+  aElement.style.backgroundColor = randomColor();
+});
+
 iconGithub.addEventListener("mouseover", () =>{
   iconGithub.className = "fa-brands fa-github fa-shake";
 });

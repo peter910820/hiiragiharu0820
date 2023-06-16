@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import express from "express";
 import bodyParser from "body-parser";
 import pgp from "pg-promise";
@@ -21,14 +22,20 @@ app.set("view engine", "pug");
 /* route */
 app.get("/", async (req, res, next) => {
   try {
-    let _datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
+    let datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
       .then((data) => {
         return data;
       }).catch((error) => {
         console.log("ERROR:", error);
       });
-    console.log(_datas);
-    res.render("index", { datas: _datas });
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
+    console.log(datas);
+    res.render("index", { datas: datas, tags: tags });
   } catch (error) {
     next(error);
   }
@@ -36,10 +43,16 @@ app.get("/", async (req, res, next) => {
 
 app.get("/galgamearticle/:article", async (req, res, next) => {
   try {
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
     let _datas = await galgameArticleShow(req.params.article);
     let _ = _datas[0].content.replaceAll("\\u0009", "\t").replaceAll("\\u000A", "\n");
     _datas[0].content = _;
-    res.render("galgameArticle", {data: _datas[0]});
+    res.render("galgameArticle", {data: _datas[0], tags: tags});
   } catch (error) {
     next(error);
   }
@@ -49,7 +62,7 @@ app.get("/tags", async (req, res, next) => {
   try {
     let datas = await db.any("SELECT * FROM tag;");
     console.log(datas);
-    res.render("tags", {datas: datas});
+    res.render("tags", {datas: datas, tags: datas});
   } catch (error) {
     next(error);
   }
@@ -57,6 +70,12 @@ app.get("/tags", async (req, res, next) => {
 
 app.get("/tags/:tag", async (req, res, next) => {
   try {
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
     let datas = await db.any("SELECT author, title, tag, create_time FROM galgame_article ORDER BY create_time DESC;")
       .then((data) => {
         const data_tags = [];
@@ -71,7 +90,7 @@ app.get("/tags/:tag", async (req, res, next) => {
         console.log("ERROR:", error);
       });
     console.log(datas);
-    res.render("tag", {datas: datas});
+    res.render("tag", {datas: datas, tags: tags});
   } catch (error) {
     next(error);
   }
@@ -93,7 +112,13 @@ app.get("/tags/:tag", async (req, res, next) => {
 
 app.get("/newgalgamearticle", async (req, res, next) => {
   try {
-    res.render("newGalgameArticle");
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
+    res.render("newGalgameArticle", {tags: tags});
   } catch (error) {
     next(error);
   }
@@ -120,31 +145,50 @@ app.post("/galgamesubmit", async (req, res, next) => {
 
 app.get("/resource", async (req, res, next) => {
   try {
-    res.render("resource");
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
+    res.render("resource", {tags: tags});
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/aboutme", (req, res, next) => {
+app.get("/aboutme", async (req, res, next) => {
   try {
-    res.render("aboutme");
+    let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+      .then((data) => {
+        return data;
+      }).catch((error) => {
+        console.log("ERROR:", error);
+      });
+    res.render("aboutme", {tags: tags});
   } catch (error) {
     next(error);
   }
 });
 
-app.get("/test", (req, res, next) => {
+app.get("/test", async (req, res, next) => {
   try {
-    res.render("newNewGagalgameArticle", { data: "111"} );
+    res.render("resourcea");
   } catch (error) {
     next(error);
   }
 });
 
 app.get("/:_", async (req, res) => {
-  return res.render("errorPage", {error: "找不到網頁", status: 404, statusDescribe: "404 Not Found"});
+  let tags = await db.any("SELECT name FROM tag ORDER BY create_time;")
+    .then((data) => {
+      return data;
+    }).catch((error) => {
+      console.log("ERROR:", error);
+    });
+  return res.render("errorPage", {error: "找不到網頁", status: 404, statusDescribe: "404 Not Found", tags: tags});
 });
+
 /* app.use */
 app.use(express.static("public"));
 app.use(errorHandler);
