@@ -127,6 +127,12 @@
     padding-right: 10px;
 }
 
+/* hidden */
+@media screen and (max-width:992px) { 
+    #close{
+        display: none;
+    }
+}
 h1{
     font-family:'en';
 }

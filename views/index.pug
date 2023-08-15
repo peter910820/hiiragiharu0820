@@ -8,7 +8,7 @@ block main
     div
       span#galgameArticleTitle.galgameArticle__title
     each article in datas
-      .galgameArticle__content.col-4
+      .galgameArticle__content.col-md-4.col-6
         a(href=`/galgamearticle/${article["title"]}`)
           h4.galgameArticle__contentTitle= article["title"]
           h6 
