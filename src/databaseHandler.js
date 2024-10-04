@@ -1,4 +1,4 @@
-import { cn } from "./connect.js";
+import { cn } from "./connectDatabase.js"; //add database information
 import pgp from "pg-promise";
 const db = pgp()(cn);
 
