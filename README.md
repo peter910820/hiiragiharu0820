@@ -1,6 +1,10 @@
 # hiiragiharu0820
 
-### 個人網站的Express(pug)實現，以後可能會拿來當主站
+## 該專案已封存，個人網站專案請參考➡️[seaotterms.com](https://github.com/peter910820/seaotterms.com)  
+
+### 個人網站的Express.js(pug)實現
+
+* 2024/10/05: 刪除資料庫相關連線方式
 
 * 08/16: 試用Bootstrap5 RWD
 * 06/17: 製作tag標籤亂數生成顏色之功能
@@ -18,7 +22,7 @@
 * 05/15: 建立輸入資料的頁面以及實做邏輯。
 * 05/15: 架設大綱以及首頁。
 
-## ToDo List
+### ToDo List
 
 - [X] 實現tag資料表
 - [x] 實現錯誤訊息之頁面
@@ -32,7 +36,7 @@
 - [ ] 解決各頁面RWD問題(大略)
   - [ ] index.pug
 - [ ] 實現使用者發表文章之功能
-- [ ] 製作備份軟體
+- [x] 製作備份軟體
 - [ ] 實現讀取文章數量之功能
 
 ![sakura_moyu](/public/images/sd_202_40.png)
